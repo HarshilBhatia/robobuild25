@@ -21,12 +21,22 @@ ev3.speaker.beep()
 
 # Try a motor:
 #motor_a = Motor(Port.A)
-motor_b = Motor(Port.B)
-motor_c = Motor(Port.C)
+motor_left = Motor(Port.B)
+motor_right = Motor(Port.C)
 
 # Go forward for 3 seconds
-motor_b.run_time(500, 3000, Stop.BRAKE, False)
-motor_c.run_time(500, 3000, Stop.BRAKE, True)
+# motor_b.run_time(500, 3000, Stop.BRAKE, False)
+# motor_c.run_time(500, 3000, Stop.BRAKE, True)
 
+# motor_b.run_time(-500, 3000, Stop.BRAKE, False)
+# motor_c.run_time(500, 3000, Stop.BRAKE, True)
+
+# left turn
+motor_left.run_angle(500, -180, Stop.BRAKE, False)
+motor_right.run_angle(500, 180, Stop.BRAKE, True)
+
+# right turn
+motor_left.run_angle(500, 180, Stop.BRAKE, False)
+motor_right.run_angle(500, -180, Stop.BRAKE, True)
 # Beep to end
 ev3.speaker.beep(frequency=800, duration=500)
